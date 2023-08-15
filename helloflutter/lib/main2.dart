@@ -1,12 +1,9 @@
 import 'package:flutter/material.dart';
 
-main() => runApp(MyApp());
-
-class MyApp extends StatelessWidget {
-  //重写build
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
+main(){
+  runApp(
+    //使用material风格来编写app，它里面默认排版风格就是左到右
+    MaterialApp(
       // debugShowCheckedModeBanner: false,
       home: Scaffold(
         appBar: AppBar(
@@ -25,6 +22,6 @@ class MyApp extends StatelessWidget {
           )
         )
       )
-    );
-  }
+    )
+  );
 }
