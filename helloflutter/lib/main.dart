@@ -56,13 +56,26 @@ class FUL extends StatefulWidget {
 }
 
 class _FULState extends State<FUL> {
+  bool mark = false;
   _FULState(){
     print('3 State 构造函数');
+    print('构造函数 mounted:$mounted');//false
   }
   @override
   void initState() {
     super.initState();
+    print('initState mounted:$mounted');//true
     print('4 State initState');
+  }
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    print('调用initState会调用 didChangeDependencies');
+  }
+  @override
+  void didUpdateWidget(covariant FUL oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    print('didUpdateWidget');
   }
   @override
   void dispose() {
@@ -72,6 +85,18 @@ class _FULState extends State<FUL> {
   @override
   Widget build(BuildContext context) {
     print('5 State build');
-    return const Placeholder();
+    return Column(
+      children: [
+        ElevatedButton(
+          onPressed: (){
+            setState(() {
+              mark =! mark;
+            });
+          },
+          child: Text('change'),
+        ),
+        Text(mark.toString())
+      ],
+    );
   }
 }
