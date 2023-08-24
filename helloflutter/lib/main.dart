@@ -27,76 +27,53 @@ class HomePage extends StatelessWidget{
                 )
             )
         ),
-        body: FUL()
+        body: STL()
     );
   }
 }
-//StatelessWidget生命周期
-// class STL extends StatelessWidget {
-//   STL({super.key}){
-//     print('先 构造函数');
-//   }
-//
-//   @override
-//   Widget build(BuildContext context) {
-//     print('后 build函数');
-//     return const Placeholder();
-//   }
-// }
-class FUL extends StatefulWidget {
-  FUL({super.key}) {
-    print('1 StatefulWidget 构造函数');
-  }
+class STL extends StatelessWidget {
+  const STL({super.key});
 
-  @override
-  State<FUL> createState() {
-    print('2 StatefulWidget createState');
-    return _FULState();
-  }
-}
-
-class _FULState extends State<FUL> {
-  bool mark = false;
-  _FULState(){
-    print('3 State 构造函数');
-    print('构造函数 mounted:$mounted');//false
-  }
-  @override
-  void initState() {
-    super.initState();
-    print('initState mounted:$mounted');//true
-    print('4 State initState');
-  }
-  @override
-  void didChangeDependencies() {
-    super.didChangeDependencies();
-    print('调用initState会调用 didChangeDependencies');
-  }
-  @override
-  void didUpdateWidget(covariant FUL oldWidget) {
-    super.didUpdateWidget(oldWidget);
-    print('didUpdateWidget');
-  }
-  @override
-  void dispose() {
-    super.dispose();
-    print('6 State dispose');
-  }
   @override
   Widget build(BuildContext context) {
-    print('5 State build');
-    return Column(
-      children: [
-        ElevatedButton(
-          onPressed: (){
-            setState(() {
-              mark =! mark;
-            });
-          },
-          child: Text('change'),
-        ),
-        Text(mark.toString())
-      ],
+    return CText();
+  }
+}
+
+class CText extends StatelessWidget {
+  const CText({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return const Text(
+      //Text宽度是auto，不能设置宽度
+      '《定风波》 苏轼莫听穿林打叶声，何妨吟啸且徐行。竹杖芒鞋轻胜马，谁怕？一蓑烟雨任平生。',
+      textAlign: TextAlign.center,//文本对齐方式，textAlign设置居中是：多行时最长字符行为宽度，才可以显示居中
+      maxLines: 2,//最大显示行数，多出就不显示了
+      overflow: TextOverflow.ellipsis,//溢出显示方式，这里为省略号
+      textScaleFactor: 1.5,//文字缩放倍数
+      style: TextStyle(
+        fontSize: 20,//单位默认px
+        color: Colors.blue,
+        fontWeight: FontWeight.w600
+      ),
     );
   }
 }
+class CRich extends StatelessWidget {
+  const CRich({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return const Text.rich(
+      TextSpan(
+        style: TextStyle(
+
+        )
+      )
+    );
+  }
+}
+
