@@ -39,7 +39,8 @@ class STL extends StatelessWidget {
     return const Column(
       children: [
         CText(),
-        CRich()
+        CRich(),
+        CRText()
       ],
     );
   }
@@ -91,3 +92,16 @@ class CRich extends StatelessWidget {
   }
 }
 
+class CRText extends StatelessWidget {
+  const CRText({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        // 与 Text 小部件不同，RichText 文本的默认颜色是白色，与主题背景相同⭐
+        RichText(text: const TextSpan(text:'text', style: TextStyle(color: Colors.amberAccent) ))
+      ],
+    );
+  }
+}
