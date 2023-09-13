@@ -30,108 +30,17 @@ class HomePage extends StatelessWidget{
         ),
         body: Column(
           children: [
-            const CTBtn(),
-            const COutlinedBtn(),
-            const CFilledButton(),
-            CElevatedButton()
+            //默认构造函数 可以与任何ImageProvider(例如NetworkImage)一起使用
+            const Image(
+              alignment:Alignment.centerLeft,
+              width: 120,//宽高只以最小的边算，这里高度也为120
+              height: 200,
+              image: NetworkImage('https://flutter.github.io/assets-for-api-docs/assets/widgets/owl.jpg',),
+            ),
+            const SizedBox(height: 55,),
+            Image.network('https://flutter.github.io/assets-for-api-docs/assets/widgets/owl-2.jpg', width: 160,height: 250,)//宽高只以最小的边算
           ],
         ),
-      //FloatingActionButton一般使用于Scaffold widget的floatingActionButton属性，浮动在右下角
-      floatingActionButton: FloatingActionButton(
-        onPressed: () => print('floatingActionButton'),
-        foregroundColor: Colors.lightBlueAccent,
-        backgroundColor: Colors.deepOrange,
-        child: const Icon(Icons.navigation),
-      ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,//位置
     );
   }
 }
-class CTBtn extends StatelessWidget {
-  const CTBtn({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        //onPressed 点击时触发的方法，为 null 就表示该按钮 禁用⭐
-        const TextButton(onPressed: null, child: Text('Disabled Text')),
-        TextButton(
-          onPressed: (){},
-          style: TextButton.styleFrom(
-            textStyle: const TextStyle(fontSize: 20, color: Colors.lightBlue),
-          ),
-          child: const Text('Enabled Text')
-        ),
-      ],
-    );
-  }
-}
-class COutlinedBtn extends StatelessWidget {
-  const COutlinedBtn({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return OutlinedButton(
-      onPressed: () {
-        debugPrint('Received click');
-      },
-      child: const Text('Outline'),
-    );
-  }
-}
-class CFilledButton extends StatelessWidget {
-  const CFilledButton({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Row(
-      mainAxisSize: MainAxisSize.min,
-      children: <Widget>[
-        Column(children: <Widget>[
-          const Text('Filled'),
-          FilledButton(
-            onPressed: () {},
-            child: const Text('Enabled'),
-          ),
-          const FilledButton(
-            onPressed: null,
-            child: Text('Disabled'),
-          ),
-        ]),
-        const SizedBox(width: 30),
-        Column(children: <Widget>[
-          const Text('Filled tonal'),
-          //制定了MaterialApp风格主题才能看出与FilledButton的区别
-          FilledButton.tonal(
-            onPressed: () {},
-            child: const Text('Enabled'),
-          ),
-          const FilledButton.tonal(
-            onPressed: null,
-            child: Text('Disabled'),
-          ),
-        ])
-      ],
-    );
-  }
-}
-class CElevatedButton extends StatelessWidget {
-  CElevatedButton({super.key});
-
-  final ButtonStyle style = ElevatedButton.styleFrom(textStyle: const TextStyle(fontSize: 20));
-
-  @override
-  Widget build(BuildContext context) {
-    return ElevatedButton(
-      style: style,
-      onPressed: () {},
-      child: const Text('Enabled'),
-    );
-  }
-}
-
-
-
-//自定义样式  图标 文字 背景 圆角
