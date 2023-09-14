@@ -32,13 +32,20 @@ class HomePage extends StatelessWidget{
           children: [
             //默认构造函数 可以与任何ImageProvider(例如NetworkImage)一起使用
             const Image(
-              alignment:Alignment.centerLeft,
-              width: 120,//宽高只以最小的边算，这里高度也为120
-              height: 200,
               image: NetworkImage('https://flutter.github.io/assets-for-api-docs/assets/widgets/owl.jpg',),
+              width: 120,
+              height: 200,//这里高度其实已经变成200了，但是没有填充，使用fit属性
+              fit: BoxFit.fitWidth, //fitWidth：宽度一定，高度自适应，fitHeight相反⭐
+              // repeat: ImageRepeat.repeatY,// fit: BoxFit.contain情况下图片是铺不满的，使用repeat调整来将其铺满
+              alignment: Alignment.topCenter,//设置图片位置
+
+              color: Colors.lightBlue,//将颜色混入到图片里面
+              colorBlendMode: BlendMode.colorDodge,//混入模式
             ),
             const SizedBox(height: 55,),
-            Image.network('https://flutter.github.io/assets-for-api-docs/assets/widgets/owl-2.jpg', width: 160,height: 250,)//宽高只以最小的边算
+            //Image Widget还提供了几个构造函数来方便地显示不同类型的图像。使用Image.network构造函数显示来自internet的图像。
+            Image.network('https://flutter.github.io/assets-for-api-docs/assets/widgets/owl-2.jpg', width: 160,height: 250,),
+            Image.asset('name')
           ],
         ),
     );
