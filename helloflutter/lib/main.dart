@@ -42,10 +42,10 @@ class HomePage extends StatelessWidget{
               color: Colors.lightBlue,//将颜色混入到图片里面
               colorBlendMode: BlendMode.colorDodge,//混入模式
             ),
-            const SizedBox(height: 55,),
+            const SizedBox(height: 5,),
             //Image Widget还提供了几个构造函数来方便地显示不同类型的图像。使用Image.network构造函数显示来自internet的图像。
-            Image.network('https://flutter.github.io/assets-for-api-docs/assets/widgets/owl-2.jpg', width: 160,height: 250,),
-            Image.asset('name')
+            //Image.network('https://flutter.github.io/assets-for-api-docs/assets/widgets/owl-2.jpg', width: 160,height: 250,),
+            Image.asset('assets/images/musk.jpeg', width: 160, height: 250,)
           ],
         ),
     );
