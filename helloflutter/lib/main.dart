@@ -30,22 +30,36 @@ class HomePage extends StatelessWidget{
         ),
         body: Column(
           children: [
-            //默认构造函数 可以与任何ImageProvider(例如NetworkImage)一起使用
-            const Image(
-              image: NetworkImage('https://flutter.github.io/assets-for-api-docs/assets/widgets/owl.jpg',),
-              width: 120,
-              height: 200,//这里高度其实已经变成200了，但是没有填充，使用fit属性
-              fit: BoxFit.fitWidth, //fitWidth：宽度一定，高度自适应，fitHeight相反⭐
-              // repeat: ImageRepeat.repeatY,// fit: BoxFit.contain情况下图片是铺不满的，使用repeat调整来将其铺满
-              alignment: Alignment.topCenter,//设置图片位置
-
-              color: Colors.lightBlue,//将颜色混入到图片里面
-              colorBlendMode: BlendMode.colorDodge,//混入模式
+            CircleAvatar(
+              //backgroundImage  是一个ImageProvider
+              backgroundImage: NetworkImage('https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fsafe-img.xhscdn.com%2Fbw1%2Fcbaf7bba-dbf0-4e07-8883-f4cc45bcfeb9%3FimageView2%2F2%2Fw%2F1080%2Fformat%2Fjpg&refer=http%3A%2F%2Fsafe-img.xhscdn.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1697614128&t=98f2b3c5c7a2fdfaa640c91fc2081c24'),
+              // backgroundColor: Colors.lightBlue,//背景颜色
+              radius: 100,//半径
+              // minRadius: ,//最小半斤
+              // maxRadius: ,//最大半径
+              //child 子widget
+              child: Container(
+                alignment: Alignment(0, .8),
+                width: 200,
+                height: 200,
+                child: Text("兵长利威尔")
+              ),
             ),
-            const SizedBox(height: 5,),
-            //Image Widget还提供了几个构造函数来方便地显示不同类型的图像。使用Image.network构造函数显示来自internet的图像。
-            //Image.network('https://flutter.github.io/assets-for-api-docs/assets/widgets/owl-2.jpg', width: 160,height: 250,),
-            Image.asset('assets/images/musk.jpeg', width: 160, height: 250,)
+            ClipOval(
+                child: Image.network(
+                  "https://tva1.sinaimg.cn/large/006y8mN6gy1g7aa03bmfpj3069069mx8.jpg",
+                  width: 200,
+                  height: 200,
+                ),
+            ),
+            ClipRect(
+                borderRadius: BorderRadius.circular(10),
+                child: Image.network(
+                  "https://tva1.sinaimg.cn/large/006y8mN6gy1g7aa03bmfpj3069069mx8.jpg",
+                  width: 200,
+                  height: 200,
+                ),
+            )
           ],
         ),
     );

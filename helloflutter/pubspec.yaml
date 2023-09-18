@@ -60,7 +60,8 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
-     - assets/images/musk.jpeg
+  #   - assets/images/musk.jpeg    精确到文件或者下面这种只到文件夹都可以
+     - assets/images/
   #   - assets/images/2.0x/musk.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
