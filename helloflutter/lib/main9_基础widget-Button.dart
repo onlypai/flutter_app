@@ -75,10 +75,11 @@ class COutlinedBtn extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return OutlinedButton(
+      style: OutlinedButton.styleFrom(tapTargetSize: MaterialTapTargetSize.shrinkWrap, minimumSize: Size(40, 10), maximumSize: Size(100, 30)),//去除边距
       onPressed: () {
         debugPrint('Received click');
       },
-      child: const Text('Outline'),
+      child: const Text('dsfghkdfsghhhhhhh Outlined hhhh'),
     );
   }
 }

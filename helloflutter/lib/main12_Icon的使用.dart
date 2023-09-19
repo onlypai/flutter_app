@@ -28,18 +28,15 @@ class HomePage extends StatelessWidget{
               )
           )
       ),
-      body: FormWidget(),
+      body: const Column(
+        children: [
+          Icon(Icons.pets, color: Colors.amber, size: 100,),
+          //使用IconData的方式，第一个参数是codePoint，是一个16进制的数字
+          Icon(IconData(0xe91d, fontFamily: 'MaterialIcons',),color: Colors.amber, size: 100,),
+          //使用text的方式，这里不能直接传16进制数字，有两点要求：1.需要转成unicode编码，2.需要设置对应字体
+          Text('\ue91d',style: TextStyle(color: Colors.lightGreen, fontFamily: 'MaterialIcons', fontSize: 100),)
+        ],
+      ),
     );
-  }
-}
-
-class FormWidget extends StatelessWidget {
-  const FormWidget({
-    super.key,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return TextField();
   }
 }
